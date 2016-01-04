@@ -53,9 +53,9 @@ class PageController extends Controller
 
                 $entity->setOrdre($v->order);
             }
-            $em->flush();
 
         }
+        $em->flush();
         return new JsonResponse(array('result' => "ok"));
 
     }

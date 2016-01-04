@@ -12,9 +12,9 @@ use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="carnet2voyage__blogArticle")
+ * @ORM\Table(name="carnet2voyage__blogCategory")
  */
-class BlogArticle
+class BlogCategory
 {
     /**
      * @ORM\Id
@@ -35,12 +35,6 @@ class BlogArticle
      */
     protected $modified;
     /**
-     * @var datetime $publied
-     *
-     * @ORM\Column(type="datetime")
-     */
-    protected $publied;
-    /**
      * @ORM\Column(type="string", length=90)
      */
     protected $title;
@@ -51,44 +45,16 @@ class BlogArticle
      * @Gedmo\Slug(fields={"title"}, unique=true)
      */
     protected $slug;
-    /**
-     * @ORM\Column(type="text", nullable=true)
-     */
-    protected $contenu;
-    /**
-     * @ORM\Column(type="boolean", nullable=true)
-     */
-    protected $actived;
-    /**
-     * @var category
-     *
-     * @ORM\ManyToOne(targetEntity="BlogCategory")
-     * @ORM\JoinColumn(name="category_id", referencedColumnName="id", nullable=false)
-     */
-    protected $category;
 
     public function __construct()
     {
-        $this->category = new ArrayCollection();
         $this->created = new \DateTime();
         $this->modified = new \DateTime();
-        $this->publied = new \DateTime();
     }
 
-    /**
-     * @return category
-     */
-    public function getCategory()
+    public function __toString()
     {
-        return $this->category;
-    }
-
-    /**
-     * @param category $category
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
+        return $this->title;
     }
 
     /**
@@ -108,7 +74,7 @@ class BlogArticle
     }
 
     /**
-     * @return mixed
+     * @return datetime
      */
     public function getCreated()
     {
@@ -116,7 +82,7 @@ class BlogArticle
     }
 
     /**
-     * @param mixed $created
+     * @param datetime $created
      */
     public function setCreated($created)
     {
@@ -137,22 +103,6 @@ class BlogArticle
     public function setModified($modified)
     {
         $this->modified = $modified;
-    }
-
-    /**
-     * @return datetime
-     */
-    public function getPublied()
-    {
-        return $this->publied;
-    }
-
-    /**
-     * @param datetime $publied
-     */
-    public function setPublied($publied)
-    {
-        $this->publied = $publied;
     }
 
     /**
@@ -185,38 +135,6 @@ class BlogArticle
     public function setSlug($slug)
     {
         $this->slug = $slug;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getContenu()
-    {
-        return $this->contenu;
-    }
-
-    /**
-     * @param mixed $contenu
-     */
-    public function setContenu($contenu)
-    {
-        $this->contenu = $contenu;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getActived()
-    {
-        return $this->actived;
-    }
-
-    /**
-     * @param mixed $actived
-     */
-    public function setActived($actived)
-    {
-        $this->actived = $actived;
     }
 
 }

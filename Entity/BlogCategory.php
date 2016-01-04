@@ -60,7 +60,7 @@ class BlogCategory
     /**
      * @return mixed
      */
-    public function getId()
+    public function  getId()
     {
         return $this->id;
     }

@@ -35,6 +35,12 @@ class BlogArticle
      */
     protected $modified;
     /**
+     * @var datetime $publied
+     *
+     * @ORM\Column(type="datetime")
+     */
+    protected $publied;
+    /**
      * @ORM\Column(type="string", length=90)
      */
     protected $title;

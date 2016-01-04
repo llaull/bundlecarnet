@@ -52,15 +52,10 @@ class BlogCategory
         $this->modified = new \DateTime();
     }
 
-    public function __toString()
-    {
-        return $this->title;
-    }
-
     /**
      * @return mixed
      */
-    public function  getId()
+    public function getId()
     {
         return $this->id;
     }
@@ -137,4 +132,5 @@ class BlogCategory
         $this->slug = $slug;
     }
 
+   
 }

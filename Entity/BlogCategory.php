@@ -132,5 +132,5 @@ class BlogCategory
         $this->slug = $slug;
     }
 
-   
+
 }

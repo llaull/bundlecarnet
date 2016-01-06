@@ -21,7 +21,7 @@ class BlogCommentWriteTest extends WebTestCase{
         $this->assertEquals(200 , $client->getResponse()->getStatusCode());
 
 
-        $form = $crawler->selectButton('Create')->form(array(
+        $form = $crawler->selectButton('CreaEntity/BlogCategoryte')->form(array(
             'carnetsbundle_blogcomment[authorName]' => 'Test'
         ));
         $client->submit($form);
